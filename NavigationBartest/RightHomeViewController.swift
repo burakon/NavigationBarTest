@@ -12,20 +12,17 @@ class RightHomeViewController: UIViewController {
 
     
     @IBOutlet weak var rightContainerView: UIView!
-    weak var delegate: HomeViewContorollerDelegate!
+    weak var delegate: HomeViewContorollerDelegate?
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        var navibar = UINavigationBar.init()
-        
-        navibar = (self.childViewControllers[0] as! UINavigationController).navigationBar
-        self.view.addSubview(navibar)
+        let naviController = (self.childViewControllers[0] as! UINavigationController)
+        self.view.addSubview(naviController.navigationBar)
     }
     
     
     @IBAction func didPushLeftButton(sender: AnyObject) {
-        delegate?.changeTabstatus()
+        delegate?.homeViewControllerDidChangeStatus()
     }
        
     func getNavigationInfomation(navigationBar : UINavigationBar) {
@@ -37,6 +34,6 @@ class RightHomeViewController: UIViewController {
 
 
 protocol HomeViewContorollerDelegate: class {
-    func changeTabstatus()
+    func homeViewControllerDidChangeStatus()
 }
 

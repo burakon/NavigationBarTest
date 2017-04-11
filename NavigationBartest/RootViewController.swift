@@ -28,20 +28,18 @@ class RootViewController: UIViewController ,HomeViewContorollerDelegate{
         rightVc.delegate = self
     }
     
-    func changeTabstatus () {
+    func homeViewControllerDidChangeStatus () {
         let status = tabStatus == TabStatus.LeftOn ? TabStatus.LeftOff : TabStatus.LeftOn
         tabStatus = status
         resetHiddenStatus()
     }
     
     func resetHiddenStatus(){
-        switch tabStatus.rawValue {
-        case TabStatus.LeftOn.rawValue :
+        switch tabStatus {
+        case TabStatus.LeftOn:
             leftContainerView.hidden = false
-        case TabStatus.LeftOff.rawValue :
+        case TabStatus.LeftOff:
             leftContainerView.hidden = true
-        default:
-            break
         }
     }
     

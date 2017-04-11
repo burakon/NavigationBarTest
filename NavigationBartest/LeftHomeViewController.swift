@@ -12,7 +12,7 @@ class LeftHomeViewController: UIViewController {
     
     
     @IBOutlet weak var leftContainerView: UIView!
-    weak var delegate: HomeViewContorollerDelegate!
+    weak var delegate: HomeViewContorollerDelegate?
 
     override func viewDidLoad() {
         
@@ -23,7 +23,7 @@ class LeftHomeViewController: UIViewController {
     }
     
     @IBAction func didPushRightButton(sender: AnyObject) {
-         delegate?.changeTabstatus()
+         delegate?.homeViewControllerDidChangeStatus()
     }
     
     
